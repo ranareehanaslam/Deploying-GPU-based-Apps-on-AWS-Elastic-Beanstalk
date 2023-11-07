@@ -104,7 +104,45 @@ After setting up the instance, create an image (AMI) of the configured EC2 insta
 - Set scaling metrics.
 - Review the configuration and launch the environment.
 
-## Step 8: Deploy Your Application
+To include the `.ebextensions` folder and `python.config` file in your AWS Elastic Beanstalk setup, follow these additional steps:
+
+## Step 8: Configure .ebextensions
+
+1. In your local project directory, create a folder named `.ebextensions`.
+2. Inside the `.ebextensions` folder, create a file named `python.config`.
+3. Add the following content to the `python.config` file:
+
+```yaml
+option_settings:
+  - namespace: aws:elasticbeanstalk:container:python
+    option_name: WSGIPath
+    value: application:application
+```
+
+This configuration sets the WSGIPath to your Flask application object, ensuring that Elastic Beanstalk can correctly serve your app.
+
+## Step 9: Update Your Application Bundle
+
+1. Ensure your application directory has the following structure:
+
+```
+/YourApplication
+|-- .ebextensions
+|   |-- python.config
+|-- application.py
+|-- requirements.txt
+```
+
+2. Create a ZIP archive of your application directory, including the `.ebextensions` folder and its contents.
+3. Use this ZIP archive when uploading your application to the Elastic Beanstalk environment.
+
+By adding the `.ebextensions` folder with the `python.config` file, you are providing AWS Elastic Beanstalk with additional instructions necessary for the proper deployment of your Python application.
+
+
+
+
+
+## Step 10: Deploy Your Application
 
 Prepare your Flask or Python app for deployment:
 
@@ -118,6 +156,9 @@ Prepare your Flask or Python app for deployment:
 3. Define routes with `@application.route('/', methods=['GET'])`.
 
 Finally, upload your app to the Elastic Beanstalk environment and verify its GPU usage.
+
+
+
 
 ## Conclusion
 
