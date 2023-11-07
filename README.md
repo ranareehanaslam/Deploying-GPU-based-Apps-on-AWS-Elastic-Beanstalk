@@ -19,7 +19,7 @@ Before proceeding, ensure you have an AWS account with the necessary permissions
 
 1. Go to the EC2 Dashboard.
 2. Launch an instance with the following specifications:
-    - AMI: `ami-0e13c7fe0a733fcc0`
+    - AMI: `ami-099df472d83c1794b`
     - Instance Type: `g4dn.xlarge` for GPU support
 
 ## Step 3: Install CUDA Drivers
