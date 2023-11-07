@@ -1,4 +1,4 @@
-# README.md for Deploying GPU-based Apps on AWS Elastic Beanstalk
+# Deploying GPU-based Apps on AWS Elastic Beanstalk
 
 This README guide outlines the major steps for deploying GPU-based applications using Amazon Elastic Beanstalk, including setting up IAM roles, EC2 instances with GPU support, CUDA drivers, and optional dependencies like FFmpeg.
 
